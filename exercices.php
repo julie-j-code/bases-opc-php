@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Les exercices de codingame</title>
+<title>Exercices codingame et divers</title>
 
 <body>
 
@@ -115,12 +115,13 @@
     // return $array;
     // }
 
+    // FIN CodinGame ----------------------
+
     function creationPaires($array)
     {
         return array_chunk($array, 2);
     }
     var_dump(creationPaires([1, 2, 3, 4, 5, 6, 7]));
-
 
     // l'utilisation de reduce en PHP que je crois n'avoir JAMAIS utlisée
     function sum($out, $in)
@@ -152,6 +153,31 @@
         return $out += $in;
     });
     var_dump($totalAmount);
+
+    $filteredArray = array_filter([1, 2, 3, 4, 5, 6], function ($element) {
+        return $element > 4;
+    });
+    var_dump($filteredArray);
+
+    function filterArray($array)
+    {
+        return array_filter($array, function ($element) {
+            return $element > 4;
+        });
+    }
+    var_dump(filterArray([1, 2, 3, 4, 5, 6]));
+
+    // tout simple pour rappel PHP vs JS
+    function cube($n)
+    {
+        return ($n * $n * $n);
+    }
+
+    $a = [1, 2, 3, 4, 5];
+    // une fois de plus le "cube" ne me vient pas spontanément. chaque méthode qui utilise une fonction de callback fera référence à cette fonction "..."
+    $b = array_map("cube", $a);
+    print_r($b);
+
 
     ?>
 

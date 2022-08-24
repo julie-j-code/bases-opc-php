@@ -143,10 +143,15 @@
     function productItems($array)
     {
         //   ok, mais je ne comprends pas la syntaxe "product" pour référence à la fonction
-        return array_reduce($array, "product");
+        return array_reduce($array, "product", 10);
     }
-    var_dump(productItems([1, 2, 3, 4, 5, 6]))
+    var_dump(productItems([1, 2, 3, 4, 5, 6]));
 
+    // plus compréhensible, concis et proche de l'utilisation qu'on en fait avec js 
+    $totalAmount = array_reduce([1, 2, 3, 4, 5, 6], function ($out, $in) {
+        return $out += $in;
+    });
+    var_dump($totalAmount);
 
     ?>
 

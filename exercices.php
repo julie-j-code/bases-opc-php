@@ -183,28 +183,23 @@
     $phoneNumber = "0667001438";
     // c'est tel qui est soumis pour comparaison avec de nombreuses options
     $tel = "+33 (0)6 67 00 14 38";
+    // tableau des valeurs à virer
+    $badChar = array(" ", "(", ")", "+");
 
-    function formatTel($tel)
+    function formatTel($tel, $badChar)
     {
-        $tel = str_replace(' ', '', $tel);
-        $tel = str_replace('(', '', $tel);
-        $tel = str_replace(')', '', $tel);
-        $tel = str_replace('+', '', $tel);
+        $tel = str_replace($badChar, '', $tel);
         return $tel;
     };
-    var_dump(formatTel($tel));
+    var_dump(formatTel($tel, $badChar));
 
 
-    function filterContent($phoneNumber, $tel)
+    function filterContent($phoneNumber, $tel, $badChar)
     {
-        $tel = str_replace(' ', '', $tel);
-        $tel = str_replace('(', '', $tel);
-        $tel = str_replace(')', '', $tel);
-        $tel = str_replace('+', '', $tel);
-
+        $tel = str_replace($badChar, '', $tel);
         return str_contains($tel, $phoneNumber);
     }
-    var_dump(filterContent($phoneNumber, $tel));
+    var_dump(filterContent($phoneNumber, $tel, $badChar));
 
     ?>
 

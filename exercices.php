@@ -179,6 +179,33 @@
     print_r($b);
 
 
+    // c'est phoneNumber qu'on a en base
+    $phoneNumber = "0667001438";
+    // c'est tel qui est soumis pour comparaison avec de nombreuses options
+    $tel = "+33 (0)6 67 00 14 38";
+
+    function formatTel($tel)
+    {
+        $tel = str_replace(' ', '', $tel);
+        $tel = str_replace('(', '', $tel);
+        $tel = str_replace(')', '', $tel);
+        $tel = str_replace('+', '', $tel);
+        return $tel;
+    };
+    var_dump(formatTel($tel));
+
+
+    function filterContent($phoneNumber, $tel)
+    {
+        $tel = str_replace(' ', '', $tel);
+        $tel = str_replace('(', '', $tel);
+        $tel = str_replace(')', '', $tel);
+        $tel = str_replace('+', '', $tel);
+
+        return str_contains($tel, $phoneNumber);
+    }
+    var_dump(filterContent($phoneNumber, $tel));
+
     ?>
 
 </body>

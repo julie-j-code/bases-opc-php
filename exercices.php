@@ -189,6 +189,8 @@
     function formatTel($tel, $badChar)
     {
         $tel = str_replace($badChar, '', $tel);
+        // Isole le dernier caractère d'une chaîne de caractères :
+        $tel = substr($tel, -9);
         return $tel;
     };
     var_dump(formatTel($tel, $badChar));
@@ -197,6 +199,9 @@
     function filterContent($phoneNumber, $tel, $badChar)
     {
         $tel = str_replace($badChar, '', $tel);
+        // pour extraire les 9 derniers caractères
+
+
         return str_contains($tel, $phoneNumber);
     }
     var_dump(filterContent($phoneNumber, $tel, $badChar));
